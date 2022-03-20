@@ -1,0 +1,46 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$green-palette: (
+  50: #f0f8e7,
+  100: #daeec2,
+  200: #c1e29b,
+  300: #a8d672,
+  400: #93ce50,
+  500: #80c52c,
+  600: #70b524,
+  700: #5ba119,
+  800: #458d0d,
+  900: #176b00,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$my-primary: mat.define-palette($green-palette, 500);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+    ),
+  )
+);
+
+@include mat.all-component-themes($my-theme);
+
+:host .mat-raised-button {
+  border-radius: 50px !important;
+}

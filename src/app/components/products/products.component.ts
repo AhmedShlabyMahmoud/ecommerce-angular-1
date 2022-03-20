@@ -14,16 +14,7 @@ export class ProductsComponent implements OnInit {
   constructor(private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router) { }
 
 
-  slicee(x:string){
-    var text =x.split(" ", 3)
-    var neww =''
-    text.forEach(e=>{
-      neww =neww.concat(e)
-      neww+=' '
-    })
-    neww = neww.substring(0, neww.length - 1);
-    return neww
-  }
+  
 
   ngOnInit(): void {
     this.postSrv.getAllPosts().subscribe(postData=>{
@@ -32,6 +23,10 @@ export class ProductsComponent implements OnInit {
     error=>{
       this.errMsg=error
     })
+  }
+  getProdDetails(id:number){
+    this.router.navigate([id],{relativeTo:this.activatedRoute})
+
   }
 
 }
