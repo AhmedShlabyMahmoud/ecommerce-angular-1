@@ -54,7 +54,9 @@ $my-theme: mat.define-light-theme(
 }
 .rate:not(:checked) > input {
   position:absolute;
-  top:-9999px;
+  //  top:-9999px;
+   right: 9999px;
+ 
 }
 .rate:not(:checked) > label {
   float:right;
@@ -83,4 +85,3 @@ $my-theme: mat.define-light-theme(
   color: #c59b08;
 }
 
-/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
